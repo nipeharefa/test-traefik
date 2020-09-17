@@ -22,4 +22,6 @@ services:
     labels:
       - traefik.http.routers.blog.rule=Host(`gcp.nias.dev`) && Path(`/blog`)
       - traefik.port=80
+      - traefik.http.routers.blog.tls=true
+      - traefik.http.routers.blog.tls.certresolver=CertificateResolver0
       - traefik.enable=true
