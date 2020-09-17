@@ -16,10 +16,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.yml:/etc/traefik/traefik.yaml
       - ${PWD}/acme.json:/acme.json
-      
+
   nginx:
     image: nginx:alpine
     labels:
-      - traefik.frontend.rule=Host:nginx.lab.praqma.com
+      - traefik.frontend.rule=Host:nginx.gcp.nias.dev
       - traefik.port=80
       - traefik.enable=true
