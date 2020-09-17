@@ -24,8 +24,8 @@ services:
       - "traefik.http.routers.whoami.rule=Host(`whoami.lab.nias.dev`)"
       - traefik.port=80
       - traefik.enable=true
-      - traefik.http.routers.blog.tls=true
-      - traefik.http.routers.blog.tls.certresolver=CertificateResolver0
+      - traefik.http.routers.whoami.tls=true
+      - traefik.http.routers.whoami.tls.certresolver=CertificateResolver0
 
   nginx:
     image: nginx:alpine
