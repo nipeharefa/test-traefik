@@ -7,4 +7,9 @@ api:
     debug: true
 
 providers:
-    dockers: ~
+    dockers:
+        watch: true
+        exposedByDefault: true
+        useBindPortIP: true
+        swarmMode: true
+        swarmModeRefreshSeconds: 42
