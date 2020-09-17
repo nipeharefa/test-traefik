@@ -17,6 +17,14 @@ services:
       - ./traefik.yml:/etc/traefik/traefik.yaml
       - ${PWD}/acme.json:/acme.json
 
+  whoami:
+    # A container that exposes an API to show its IP address
+    image: containous/whoami
+    labels:
+      - "traefik.http.routers.whoami.rule=Host(`whoami.lab.nias.dev`)"
+      - traefik.port=80
+      - traefik.enable=true
+
   nginx:
     image: nginx:alpine
     labels:
