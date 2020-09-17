@@ -20,6 +20,6 @@ services:
   nginx:
     image: nginx:alpine
     labels:
-      - traefik.http.routers.blog.rule=Host(`example.com`) && Path(`/blog`)
+      - traefik.http.routers.blog.rule=Host(`gcp.nias.dev`) && Path(`/blog`)
       - traefik.port=80
       - traefik.enable=true
