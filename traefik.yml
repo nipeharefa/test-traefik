@@ -1,0 +1,10 @@
+global:
+    checkNewVersion: true
+
+api:
+    insecure: true
+    dashboard: true
+    debug: true
+
+providers:
+    dockers: ~

@@ -1,16 +1,25 @@
 version: '3'
 
 services:
-  reverse-proxy:
+  traefik:
     # The official v2 Traefik docker image
     image: traefik:v2.2
     # Enables the web UI and tells Traefik to listen to docker
-    command: --api.insecure=true --providers.docker
+    # command: --api.insecure=true --providers.docker
     ports:
       # The HTTP port
       - "80:80"
-      # The Web UI (enabled by --api.insecure=true)
+      - "443:443"
       - "8080:8080"
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.yml:/etc/traefik/traefik.yaml
+      - ${PWD}/acme.json:/acme.json
+      
+  nginx:
+    image: nginx:alpine
+    labels:
+      - traefik.frontend.rule=Host:nginx.lab.praqma.com
+      - traefik.port=80
+      - traefik.enable=true
