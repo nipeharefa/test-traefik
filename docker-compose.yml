@@ -28,7 +28,7 @@ services:
   nginx:
     image: nginx:alpine
     labels:
-      - traefik.http.routers.blog.rule=Host(`gcp.nias.dev`) && Path(`/blog`)
+      - "traefik.http.routers.blog.rule=Host(`gcp.nias.dev`)"
       - traefik.port=80
       - traefik.http.routers.blog.tls=true
       - traefik.http.routers.blog.tls.certresolver=CertificateResolver0
