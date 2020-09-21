@@ -1,0 +1,26 @@
+entryPoints:
+    web:
+        address: ":80"
+    websecure:
+        address: ":443"  
+
+global:
+    checkNewVersion: true
+
+api:
+    insecure: true
+    dashboard: true
+    debug: true
+
+providers:
+    docker:
+        watch: true
+
+certificatesResolvers:
+    CertificateResolver0:
+        acme:
+            email: nipeharefa@nias.dev
+            storage: /acme.json
+            caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+            httpChallenge:
+                entryPoint: web
